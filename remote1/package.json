@@ -2,9 +2,9 @@
   "name": "@server-side-rendering/remote1",
   "version": "1.0.0",
   "scripts": {
-    "build": "npm run build:client && npm run build:server",
-    "build:client": "webpack --mode production --config config/webpack.client.js",
-    "build:server": "webpack --mode production --config config/webpack.server.js",
+    "build": "webpack --mode production --config webpack.config.ts",
+    "build:client": "webpack --mode production --config config/webpack.client.ts",
+    "build:server": "webpack --mode production --config config/webpack.server.ts",
     "serve": "npx serve dist/ -p 3001",
     "start": "npm run build && npm run serve"
   },
