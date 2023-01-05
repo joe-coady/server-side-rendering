@@ -1,9 +1,12 @@
-const path = require("path");
-const { merge } = require("webpack-merge");
-const shared = require("./webpack.shared");
-const moduleFederationPlugin = require("./module-federation");
+import path from "path";
 
-module.exports = merge(shared, {
+import { merge } from "webpack-merge";
+
+import sharedWebpackConfig from "./webpack.shared";
+import moduleFederationPlugin from "./module-federation";
+
+export default merge(sharedWebpackConfig, {
+  // @ts-ignore
   name: "client",
   target: "web",
   entry: ["@babel/polyfill", path.resolve(__dirname, "../src/index.js")],
@@ -15,7 +18,5 @@ module.exports = merge(shared, {
     chunkFilename: "[name].js",
     publicPath: "http://localhost:3000/static/",
   },
-  plugins: [
-    moduleFederationPlugin.client,
-  ],
+  plugins: [moduleFederationPlugin.client],
 });

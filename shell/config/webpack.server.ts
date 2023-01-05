@@ -1,9 +1,11 @@
-const path = require("path");
-const { merge } = require("webpack-merge");
-const shared = require("./webpack.shared");
-const moduleFederationPlugin = require("./module-federation");
+import path from "path";
+import { merge } from "webpack-merge";
 
-module.exports = merge(shared, {
+import sharedWebpackConfig from "./webpack.shared";
+import moduleFederationPlugin from "./module-federation";
+
+export default merge(sharedWebpackConfig, {
+  // @ts-ignore
   name: "server",
   target: false,
   entry: ["@babel/polyfill", path.resolve(__dirname, "../server/index.js")],
@@ -13,9 +15,7 @@ module.exports = merge(shared, {
     libraryTarget: "commonjs-module",
   },
   mode: "production",
-  plugins: [
-    ...moduleFederationPlugin.server,
-  ],
+  plugins: [...moduleFederationPlugin.server],
   stats: {
     colors: true,
   },
