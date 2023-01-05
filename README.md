@@ -10,11 +10,11 @@ This example demonstrates a basic shell application loading remote components an
 
 ## Running Demo
 
-Run `yarn` to install the dependencies.
+Run `npm i` to install the dependencies.
 
-Run `yarn build` to build the packages.
+Run `npm run build` to build the packages.
 
-Run `yarn serve` in the shell and remote1 and remote2 folders to start the servers.
+Run `npm run serve` in the **shell** and **remote1** and **remote2** folders to start the servers.
 
 This will build the packages and and serve them on ports 3000, 3001 and 3002 respectively.
 
